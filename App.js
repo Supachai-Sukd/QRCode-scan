@@ -66,14 +66,13 @@ export default function App() {
         onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
         style={StyleSheet.absoluteFillObject}
       />
-      {/* {scanned && <Text style={{ color: 'purple', textAlign: 'center', fontSize: 20 }}
-        onPress={() => Linking.openURL('http://www.southeast.ac.th/2017/')}>
-        Inventory Web
-      </Text>} */}
-      {scanned && <Button title={'Inventory Web'} style={{ color: 'purple', textAlign: 'center', fontSize: 20 }}
+      
+      {scanned && <Button title={'Inventory Web'} style={{ color: 'purple', textAlign: 'center', fontSize: 20, marginVertical: 20 }}
         onPress={() => Linking.openURL('http://www.southeast.ac.th/2017/')} />}
         
-      
+      {scanned && <Text>
+        
+      </Text>}
       
       {scanned && <Button title={'Tap to Scan Again'} onPress={() => setScanned(false)} style={{ color: 'purple' }} />}
     </View>
