@@ -1,0 +1,33 @@
+{
+  "expo": {
+    "name": "barcodescanner-inventory",
+    "slug": "snack-5e595c96-edeb-4545-9426-a0307d19ac54",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#FFFFFF"
+      },
+      "package": "com.bankexpo.snack5e595c96edeb45459426a0307d19ac54"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
+}
