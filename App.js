@@ -1,9 +1,33 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { Text, View, StyleSheet, Button, Alert, Clipboard, Linking } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { Text, View, StyleSheet, Alert, Clipboard, Linking } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 
 
-
+const styles = StyleSheet.create({
+  buttonWeb: {
+    color: '#20232a',
+    marginBottom: 20,
+    borderRadius: 6,
+    backgroundColor: "#3fbdfd",
+    borderWidth: 2,
+    borderColor: "#20232a",
+    fontWeight: "bold",
+    textAlign: "center",
+    paddingVertical: 8,
+    fontSize: 20
+  },
+  buttonScan: {
+    color: '#20232a',
+    borderRadius: 6,
+    backgroundColor: "#3fbdfd",
+    borderWidth: 2,
+    borderColor: "#20232a",
+    fontWeight: "bold",
+    textAlign: "center",
+    paddingVertical: 8,
+    fontSize: 20
+  }
+});
 
 
 
@@ -27,12 +51,11 @@ export default function App() {
   const handleBarCodeScanned = ({ type, data }) => {
     setScanned(true);
     Alert.alert(
-      // `Data: [${data}] \nType: [${type}]`,
-      'Alert Title',
+      'SBC CT62 Inventory System',
       `${data}`,
       [
         {
-          text: 'Copy ID',
+          text: 'Copy Id Code ',
           onPress: () => copyToClipboard(data)
         },
         {
@@ -40,7 +63,7 @@ export default function App() {
           onPress: () => console.log('Cancel Pressed'),
           style: 'cancel'
         },
-        { text: 'OK', onPress: () => console.log('OK Pressed') }
+        
       ],
       { cancelable: false }
     );
@@ -67,14 +90,17 @@ export default function App() {
         style={StyleSheet.absoluteFillObject}
       />
       
-      {scanned && <Button title={'Inventory Web'} style={{ color: 'purple', textAlign: 'center', fontSize: 20, marginVertical: 20 }}
-        onPress={() => Linking.openURL('http://www.southeast.ac.th/2017/')} />}
+      {
+      scanned && <Text style={styles.buttonWeb}
+      onPress={() => Linking.openURL('http://www.southeast.ac.th/2017/')}>Inventory Web</Text>
+      }
         
-      {scanned && <Text>
-        
-      </Text>}
       
-      {scanned && <Button title={'Tap to Scan Again'} onPress={() => setScanned(false)} style={{ color: 'purple' }} />}
+      
+      {
+      scanned && <Text onPress={() => setScanned(false)} 
+      style={styles.buttonScan}>Tap to Scan Again</Text>
+      }
     </View>
   );
 }
